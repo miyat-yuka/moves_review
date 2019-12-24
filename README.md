@@ -61,6 +61,7 @@ Things you may want to cover:
 |movie_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
+- belongs_to :movie
 - has_many :likes
 - has_many :liking_users
 
