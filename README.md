@@ -80,15 +80,15 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
-|movie_id|integer|null: false, foreign_key: true|
+|like_id|integer|null: false, foreign_key: true|
 ### Association
-- has_many :texts
+- has_many :users
 
 
 ## likes_textsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|movie_id|integer|null: false, foreign_key: true|
+|text_id|integer|null: false, foreign_key: true|
+|like_id|integer|null: false, foreign_key: true|
 ### Association
-- has_many :users
+- has_many :texts
