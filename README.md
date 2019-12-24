@@ -23,7 +23,7 @@ Things you may want to cover:
 
 * ...
 
-## usersテーブル
+## userテーブル
 |Column|Type|Options|
 |------|----|-------|
 |email|string|null: false|
@@ -32,15 +32,25 @@ Things you may want to cover:
 ### Association
 - has_many :texts
 - has_many :likes
+- has_many :likes_texts
+
 
 ## movieテーブル
 |Column|Type|Options|
 |------|----|-------|
 |moviename|string|null: false|
-|genre|string|null: false|
 ### Association
 - has_many :texts
-- has_many :likes
+- belongs_to :genre
+
+
+## genreテーブル
+|Column|Type|Options|
+|------|----|-------|
+|genrename|string|null: false|
+### Association
+- has_many :movies
+
 
 ## textテーブル
 |Column|Type|Options|
@@ -52,6 +62,8 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 - has_many :likes
+- has_many :liking_users
+
 
 ## likeテーブル
 |Column|Type|Options|
@@ -61,3 +73,21 @@ Things you may want to cover:
 ### Association
 - belongs_to :text
 - belongs_to :user
+
+
+## liking_usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false, foreign_key: true|
+|movie_id|integer|null: false, foreign_key: true|
+### Association
+- has_many :texts
+
+
+## likes_textsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false, foreign_key: true|
+|movie_id|integer|null: false, foreign_key: true|
+### Association
+- has_many :users
