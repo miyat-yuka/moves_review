@@ -23,4 +23,41 @@ Things you may want to cover:
 
 * ...
 
+## usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|email|string|null: false|
+|password|string|null: false|
+|username|string|null: false|
+### Association
+- has_many :texts
+- has_many :likes
 
+## movieテーブル
+|Column|Type|Options|
+|------|----|-------|
+|moviename|string|null: false|
+|genre|string|null: false|
+### Association
+- has_many :texts
+- has_many :likes
+
+## textテーブル
+|Column|Type|Options|
+|------|----|-------|
+|title|text|null: false|
+|text|text|null: false|
+|user_id|integer|null: false, foreign_key: true|
+|movie_id|integer|null: false, foreign_key: true|
+### Association
+- belongs_to :user
+- has_many :likes
+
+## likeテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false, foreign_key: true|
+|movie_id|integer|null: false, foreign_key: true|
+### Association
+- belongs_to :text
+- belongs_to :user
