@@ -4,9 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-         has_many :texts dependent: :destroy
+         has_many :texts
 
          #いいね機能のアソシエーション
-         has_many :likes dependent: :destroy
+         has_many :likes
          has_many :likes_texts, through: :likes, source: :text
 end
